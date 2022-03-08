@@ -46,11 +46,11 @@ public class updownload {
 	
 	  public ResponseEntity<Void> uploadNewFile(@NotNull @RequestParam("file") MultipartFile multipartFile , @PathVariable Map<String, String> pathVarsMap) throws IOException {
 
-		System.out.println("hereerre");
+		System.out.println("hereerre1");
 		
 		
 		String msg = pathVarsMap.get("send"); 
-		 String[] arr = msg.split("&&");
+		 String[] arr = msg.split("<<&&>>");
 		 
 		
 		System.out.println(msg);
@@ -64,9 +64,9 @@ public class updownload {
 				    
 				    System.out.println(multipartFile.getContentType());
 				    System.out.println(multipartFile.getOriginalFilename());
-				    fileEntity.setMsg(arr[0]);
-				    fileEntity.setTeamname(arr[1]);
-				    fileEntity.setUsername( memrepo.findByuserid(arr[2]).getUsername() );
+				    fileEntity.setMsg(arr[2]);
+				    fileEntity.setTeamname(arr[0]);
+				    fileEntity.setUsername( memrepo.findByuserid(arr[1]).getUsername() );
 				    //fileEntity.setLike(0);
 				    
 				    
@@ -105,7 +105,7 @@ public class updownload {
 	
 	  public int upload( @PathVariable Map<String, String> pathVarsMap) throws IOException {
 
-		System.out.println("hereerre");
+		System.out.println("hereerre2");
 		
 		Date date = new Date();  
 	    SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM yyyy");  
@@ -113,7 +113,7 @@ public class updownload {
 		
 		
 		String msg = pathVarsMap.get("send"); 
-		String[] arr = msg.split("&&");
+		String[] arr = msg.split("<<&&>>");
 		
 		System.out.println(msg);
 		
